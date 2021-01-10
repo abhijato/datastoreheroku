@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: py-json
+Version: 0.1.1
+Summary: 
+Home-page: https://github.com/shparki/pyson
+Author: Shparki
+Author-email: matt.murray@pnmac.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Project-URL: Repository, https://github.com/shparki/pyson
+Description-Content-Type: text/markdown
+
+# pyson
+The definitive extension to the core python json module
+

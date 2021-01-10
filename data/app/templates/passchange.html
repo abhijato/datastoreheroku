@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Change your password</title>
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <label for="old">Your current password: </label>
+            {{form.old}}
+            <br>
+            <br>
+            <label for="new">Your new password: </label>
+            {{form.new}}
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

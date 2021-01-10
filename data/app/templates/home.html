@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Home</title>
+        <style>
+            .button {
+              padding: 15px 25px;
+              font-size: 24px;
+              cursor: pointer;
+              text-align: center;
+              text-decoration: none;
+              outline: none;
+              color: #fff;
+              background-color: #4CAF50;
+              border: none;
+              border-radius: 15px;
+              box-shadow: 0 9px #999;
+            }
+
+            .button:hover {background-color: darkgreen}
+
+            .button:active {
+              background-color: darkgreen;
+              box-shadow: 0 5px #666;
+              transform: translateY(4px);
+            }
+            #l{
+                background-color: red;
+            }
+            #l:hover{
+                background-color: darkred;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="welcome text">
+            <h1>Welcome to ppp! Choose what you want to do.</h1>
+        </div>
+        <button class="button" id="l" onclick="location.href='/login'">login</button>
+        <br>
+        <br>
+        <button class="button" id="r">register for a free account!</button>
+    </body>
+</html>

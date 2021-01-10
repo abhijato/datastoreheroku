@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>View your stored data</title>
+        <style>
+            #table{
+                position: absolute;
+                bottom: 50%;
+                left: 50%;
+                transform: translate(-50%, 50%);
+            }
+            #welcome{
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translate(-50%, 100%);
+            }
+            #welcome h2{
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, 0%);
+            }
+            
+            
+            th,td{
+                border: 3px solid black;
+            }
+            tr:nth-child(even){
+                background-color: lightgreen;
+            }
+            
+            tr:nth-child(odd){
+                background-color: lightcoral;
+            }
+            tr:nth-child(1){
+                background-color: lightseagreen;
+            }
+            tr:nth-child(even):hover{
+                background-color: lawngreen;
+            }
+            tr:nth-child(odd):hover{
+                background-color: orangered;
+            }
+            tr:nth-child(1):hover{
+                background-color: mediumseagreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="welcome">
+            <h1>Welcome {{user}}! View your data.</h1>
+            <h2>path:{{path}}</h2>
+        </div>
+        <div id="table">
+            <table>
+                <tr>
+                    <th>NAME</th>
+                    <th>VALUE/DATA</th>
+                </tr>
+                {% for dta,vdta in data.items %}
+                    {% if vdta == 'o' %}
+                        <tr><td>{{dta}}</td><td>The value is an object. Click <button id={{dta}} onclick="location.href='{{dta}}/'">here</button> to view.</td></tr>
+                    {% else %}
+                        <tr><td>{{dta}}</td><td>{{vdta.1}}</td></tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <button onclick="location.href='/dashboard/edit/action/{{path}}'">Choose this location</button>
+    </body>
+</html>
