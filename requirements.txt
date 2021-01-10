@@ -1,5 +1,4 @@
 django
 dnspython
 pyjson
-py-json
 pymongo
