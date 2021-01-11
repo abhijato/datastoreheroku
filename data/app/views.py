@@ -41,6 +41,8 @@ def datahome(request):
     doc=json.loads(doc)
     global data
     global username
+    global path
+    path='base'
     data=doc[username]
     data=data['data']
     send={}
@@ -49,7 +51,7 @@ def datahome(request):
             send[key]=['non-obj',data[key]]
         else:
             send[key]='o'
-    return render(request, 'data.html', {'data': send,'user': username,'path':path})
+    return render(request, 'data.html', {'data': send,'user': username,'path':"base"})
 
 def datasub(request,objs):
     doc=json.dumps(utils.get_doc_dir("mongodb+srv://login-app:DJ-logger-modal@cluster.u4txd.mongodb.net/database?retryWrites=true&w=majority","DB1","col1",{'title':'LoginDB'}))
@@ -71,7 +73,7 @@ def datasub(request,objs):
             send[key]=['non-obj',subobj[key]]
         else:
             send[key]='o'
-    return render(request, 'data.html', {'data': send,'user': username,'path':path})
+    return render(request, 'data.html', {'data': send,'user': username,'path':objsdot})
 
 def dashboard(request):
     path="base"
