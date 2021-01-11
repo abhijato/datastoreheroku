@@ -2,3 +2,4 @@ django
 dnspython
 pyjson
 pymongo
+gunicorn
