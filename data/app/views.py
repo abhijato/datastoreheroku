@@ -36,26 +36,26 @@ def login(request):
             messages.error(request, f"no such username")
     return render(request, 'login.html', {'form': form})
 
-def datahome(request):
+def datahome(request,uname):
     doc=json.dumps(utils.get_doc_dir("mongodb+srv://login-app:DJ-logger-modal@cluster.u4txd.mongodb.net/database?retryWrites=true&w=majority","DB1","col1",{'title':'LoginDB'}))
     doc=json.loads(doc)
     global data
     global username
-    data=doc[username]['data']
+    data=doc[uname]['data']
     send={}
     for key in data:
         if type(data[key])!=dict:
             send[key]=['non-obj',data[key]]
         else:
             send[key]='o'
-    return render(request, 'data.html', {'data': send,'user': username,'path':path})
+    return render(request, 'data.html', {'data': send,'user': uname,'path':path})
 
-def datasub(request,objs):
+def datasub(request,objs,uname):
     doc=json.dumps(utils.get_doc_dir("mongodb+srv://login-app:DJ-logger-modal@cluster.u4txd.mongodb.net/database?retryWrites=true&w=majority","DB1","col1",{'title':'LoginDB'}))
     doc=json.loads(doc)
     global data
     global username
-    data=doc[username]['data']
+    data=doc[uname]['data']
     global path
     subobj=data
     objs=objs.split('/')
@@ -71,31 +71,31 @@ def datasub(request,objs):
             send[key]=['non-obj',subobj[key]]
         else:
             send[key]='o'
-    return render(request, 'data.html', {'data': send,'user': username,'path':path})
+    return render(request, 'data.html', {'data': send,'user': uname,'path':path})
 
-def dashboard(request):
+def dashboard(request,uname):
     path="base"
-    return render(request, 'dashboard.html', {'user':username})
+    return render(request, 'dashboard.html', {'user':uname})
 
-def editor(request):
+def editor(request,uname):
     doc=json.dumps(utils.get_doc_dir("mongodb+srv://login-app:DJ-logger-modal@cluster.u4txd.mongodb.net/database?retryWrites=true&w=majority","DB1","col1",{'title':'LoginDB'}))
     doc=json.loads(doc)
     global data
     global username
-    data=doc[username]['data']
+    data=doc[uname]['data']
     send={}
     for key in data:
         if type(data[key])!=dict:
             send[key]=['non-obj',data[key]]
         else:
             send[key]='o'
-    return render(request, 'editor.html', {'data': send,'user': username,'path':path})
+    return render(request, 'editor.html', {'data': send,'user': uname,'path':path})
 
-def editorsub(request,objs):
+def editorsub(request,objs,uname):
     doc=json.dumps(utils.get_doc_dir("mongodb+srv://login-app:DJ-logger-modal@cluster.u4txd.mongodb.net/database?retryWrites=true&w=majority","DB1","col1",{'title':'LoginDB'}))
     doc=json.loads(doc)
     global data
-    data=doc[username]['data']
+    data=doc[uname]['data']
     global path
     subobj=data
     objs=objs.split('/')
@@ -111,11 +111,11 @@ def editorsub(request,objs):
             send[key]=['non-obj',subobj[key]]
         else:
             send[key]='o'
-    return render(request, 'editor.html', {'data': send,'user': username,'path':path})
+    return render(request, 'editor.html', {'data': send,'user': uname,'path':path})
 
-def actchoose(request,pth):
-    return render(request, 'act.html', {'path': pth})
+def actchoose(request,pth,uname):
+    return render(request, 'act.html', {'path': pth,'uname':uname})
 
-def choosedt(request,pth):
-    return render(request, 'choosedt.html', {'path': pth})
+def choosedt(request,pth,uname):
+    return render(request, 'choosedt.html', {'path': pth,'uname':uname})
     

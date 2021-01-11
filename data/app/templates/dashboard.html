@@ -5,9 +5,9 @@
     <body>
         <h1>Welcome {{user}}! Choose what you want to do.</h1>
         <ul>
-            <li><button onclick="location.href='/dashboard/datahome'">View your data</button></li>
-            <li><button onclick="location.href='/dashboard/editor'">Edit your data</button></li>
-            <li><button onclick="location.href='/dashboard/newpassword'">Change password</button></li>
+            <li><button onclick="location.href='/{{user}}/dashboard/datahome'">View your data</button></li>
+            <li><button onclick="location.href='/{{user}}/dashboard/editor'">Edit your data</button></li>
+            <li><button onclick="location.href='/{{user}}/dashboard/newpassword'">Change password</button></li>
         </ul>
     </body>
 </html>
