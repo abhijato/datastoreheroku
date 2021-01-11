@@ -34,7 +34,7 @@ def login(request):
                 messages.error(request, f"wrong password")
         else:
             messages.error(request, f"no such username")
-    return render(request, 'login.html', {'form': form})
+    yield render(request, 'login.html', {'form': form})
 
 def datahome(request):
     doc=json.dumps(utils.get_doc_dir("mongodb+srv://login-app:DJ-logger-modal@cluster.u4txd.mongodb.net/database?retryWrites=true&w=majority","DB1","col1",{'title':'LoginDB'}))
