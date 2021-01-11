@@ -54,6 +54,7 @@ def datasub(request,objs):
     doc=json.dumps(utils.get_doc_dir("mongodb+srv://login-app:DJ-logger-modal@cluster.u4txd.mongodb.net/database?retryWrites=true&w=majority","DB1","col1",{'title':'LoginDB'}))
     doc=json.loads(doc)
     global data
+    global username
     data=doc[username]['data']
     global path
     subobj=data
